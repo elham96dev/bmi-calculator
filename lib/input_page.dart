@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/reusable_card.dart';
+import 'package:bmi_calculator/round_icon_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -18,6 +19,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
   int height = 180;
+  int weight = 60;
+  int age = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -136,9 +139,42 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     containerColor: kActiveCardColor,
-                    cardChild: IconContent(
-                      icon: Icons.numbers,
-                      label: 'WEIGHT',
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'WEIGHT',
+                          style: kTextStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                            )
+                          ],
+                        )
+                      ],
                     ),
                     onPressed: () {},
                   ),
@@ -146,9 +182,42 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     containerColor: kActiveCardColor,
-                    cardChild: IconContent(
-                      icon: Icons.numbers,
-                      label: 'AGE',
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'AGE',
+                          style: kTextStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                            )
+                          ],
+                        )
+                      ],
                     ),
                     onPressed: () {},
                   ),
@@ -163,16 +232,6 @@ class _InputPageState extends State<InputPage> {
             height: kBottomContainerHeight,
           )
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.purple,
-        foregroundColor: Colors.white,
-        shape: CircleBorder(),
-        onPressed: () {},
-        child: Icon(
-          Icons.add,
-          size: 28,
-        ),
       ),
     );
   }
