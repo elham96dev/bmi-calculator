@@ -9,6 +9,36 @@ const kNumberTextStyle = TextStyle(
   fontSize: 50,
   fontWeight: FontWeight.w900,
 );
+
+const kCalculateButtonTextStyle = TextStyle(
+  color: Colors.white,
+  fontSize: 25.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kResultTitleTextStyle = TextStyle(
+  color: Colors.white,
+  fontSize: 50.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kBmiResultTextStyle = TextStyle(
+  color: Color(0xFF24D867),
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kBmiValueTextStyle = TextStyle(
+  color: Colors.white,
+  fontSize: 100.0,
+  fontWeight: FontWeight.bold,
+);
+
+const kBmiExplanationTextStyle = TextStyle(
+  color: Colors.white,
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold,
+);
 //__________________________________
 const kBottomContainerHeight = 80.0;
 const kBottomContainerColor = Color(0xFFEB1555);

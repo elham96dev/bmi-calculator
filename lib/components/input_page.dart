@@ -1,15 +1,14 @@
-import 'package:bmi_calculator/reusable_card.dart';
-import 'package:bmi_calculator/round_icon_button.dart';
+import 'package:bmi_calculator/components/round_icon_button.dart';
+import 'package:bmi_calculator/screens/result_page.dart';
+import 'package:bmi_calculator/screens/reusable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'constants.dart';
+import '../constants.dart';
+import 'bottom_button.dart';
 import 'icon_content.dart';
 
-enum Gender {
-  male,
-  female,
-}
+enum Gender { male, female }
 
 class InputPage extends StatefulWidget {
   @override
@@ -19,7 +18,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender? selectedGender;
   int height = 180;
-  int weight = 60;
+  int weight = 0;
   int age = 0;
 
   @override
@@ -123,14 +122,13 @@ class _InputPageState extends State<InputPage> {
                       max: 2000.0,
                       onChanged: (double sliderValue) {
                         setState(() {
-                          height = sliderValue.toInt();
+                          height = sliderValue.round();
                         });
                       },
                     ),
                   ),
                 ],
               ),
-              onPressed: () {},
             ),
           ),
           Expanded(
@@ -176,7 +174,6 @@ class _InputPageState extends State<InputPage> {
                         )
                       ],
                     ),
-                    onPressed: () {},
                   ),
                 ),
                 Expanded(
@@ -219,17 +216,17 @@ class _InputPageState extends State<InputPage> {
                         )
                       ],
                     ),
-                    onPressed: () {},
                   ),
                 ),
               ],
             ),
           ),
-          Container(
-            color: kBottomContainerColor,
-            margin: EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: kBottomContainerHeight,
+          BottomButton(
+            buttonTitle: 'CALCULATE',
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ResultPage()));
+            },
           )
         ],
       ),
