@@ -34,7 +34,7 @@ const kBmiValueTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
-const kBmiExplanationTextStyle = TextStyle(
+const kFeedbackTextStyle = TextStyle(
   color: Colors.white,
   fontSize: 22.0,
   fontWeight: FontWeight.bold,
